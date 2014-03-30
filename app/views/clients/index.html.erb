@@ -1,0 +1,59 @@
+<h1>Listing clients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Has old code</th>
+      <th>Birth date</th>
+      <th>Race</th>
+      <th>Register date</th>
+      <th>Register location name</th>
+      <th>New</th>
+      <th>Gender</th>
+      <th>How did you hear</th>
+      <th>Veterancy</th>
+      <th>Neighborhood</th>
+      <th>Hiv screen</th>
+      <th>Hiv result</th>
+      <th>Hep b screen</th>
+      <th>Hep b result</th>
+      <th>Hep c screen</th>
+      <th>Hep c result</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.code %></td>
+        <td><%= client.has_old_code %></td>
+        <td><%= client.birth_date %></td>
+        <td><%= client.race %></td>
+        <td><%= client.register_date %></td>
+        <td><%= client.register_location_name %></td>
+        <td><%= client.new %></td>
+        <td><%= client.gender %></td>
+        <td><%= client.how_did_you_hear %></td>
+        <td><%= client.veterancy %></td>
+        <td><%= client.neighborhood %></td>
+        <td><%= client.hiv_screen %></td>
+        <td><%= client.hiv_result %></td>
+        <td><%= client.hep_b_screen %></td>
+        <td><%= client.hep_b_result %></td>
+        <td><%= client.hep_c_screen %></td>
+        <td><%= client.hep_c_result %></td>
+        <td><%= link_to 'Show', client %></td>
+        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client', new_client_path %>

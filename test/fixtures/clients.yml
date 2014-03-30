@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  has_old_code: false
+  birth_date: 2014-03-30 17:24:40
+  race: MyString
+  register_date: 2014-03-30 17:24:40
+  register_location_name: MyString
+  new: false
+  gender: MyString
+  how_did_you_hear: MyString
+  veterancy: false
+  neighborhood: MyString
+  hiv_screen: false
+  hiv_result: false
+  hep_b_screen: false
+  hep_b_result: false
+  hep_c_screen: false
+  hep_c_result: false
+
+two:
+  code: MyString
+  has_old_code: false
+  birth_date: 2014-03-30 17:24:40
+  race: MyString
+  register_date: 2014-03-30 17:24:40
+  register_location_name: MyString
+  new: false
+  gender: MyString
+  how_did_you_hear: MyString
+  veterancy: false
+  neighborhood: MyString
+  hiv_screen: false
+  hiv_result: false
+  hep_b_screen: false
+  hep_b_result: false
+  hep_c_screen: false
+  hep_c_result: false
