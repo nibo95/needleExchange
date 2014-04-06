@@ -11,87 +11,89 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :visit_id %><br>
-    <%= f.number_field :visit_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :ultrafines %><br>
-    <%= f.number_field :ultrafines %>
-  </div>
-  <div class="field">
-    <%= f.label :halfs %><br>
-    <%= f.number_field :halfs %>
-  </div>
-  <div class="field">
-    <%= f.label :pogos %><br>
-    <%= f.number_field :pogos %>
-  </div>
-  <div class="field">
-    <%= f.label :blues %><br>
-    <%= f.number_field :blues %>
-  </div>
-  <div class="field">
-    <%= f.label :one_qt %><br>
-    <%= f.number_field :one_qt %>
-  </div>
-  <div class="field">
-    <%= f.label :two_qt %><br>
-    <%= f.number_field :two_qt %>
-  </div>
-  <div class="field">
-    <%= f.label :three_gal %><br>
-    <%= f.number_field :three_gal %>
-  </div>
-  <div class="field">
-    <%= f.label :alcohol_whipes %><br>
-    <%= f.number_field :alcohol_whipes %>
-  </div>
-  <div class="field">
-    <%= f.label :cookers %><br>
-    <%= f.number_field :cookers %>
-  </div>
-  <div class="field">
-    <%= f.label :cottons %><br>
-    <%= f.number_field :cottons %>
-  </div>
-  <div class="field">
-    <%= f.label :ties %><br>
-    <%= f.number_field :ties %>
-  </div>
-  <div class="field">
-    <%= f.label :bleach %><br>
-    <%= f.number_field :bleach %>
-  </div>
-  <div class="field">
-    <%= f.label :condoms %><br>
-    <%= f.number_field :condoms %>
-  </div>
-  <div class="field">
-    <%= f.label :ascorbic_acid %><br>
-    <%= f.number_field :ascorbic_acid %>
-  </div>
-  <div class="field">
-    <%= f.label :pieces_of_lit %><br>
-    <%= f.number_field :pieces_of_lit %>
-  </div>
-  <div class="field">
-    <%= f.label :narcan %><br>
-    <%= f.number_field :narcan %>
-  </div>
-  <div class="field">
-    <%= f.label :secondary_exchange %><br>
-    <%= f.number_field :secondary_exchange %>
-  </div>
-  <div class="field">
-    <%= f.label :returned_needles %><br>
-    <%= f.number_field :returned_needles %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="small-6 columns">
+    <div class="field">
+      <%= f.label :visit_id %><br>
+      <%= f.number_field :visit_id %>
+    </div>
+    <div class="field">
+      <%= f.label :user_id %><br>
+      <%= f.number_field :user_id %>
+    </div>
+    <div class="field">
+      <%= f.label :ultrafines %><br>
+      <%= f.number_field :ultrafines %>
+    </div>
+    <div class="field">
+      <%= f.label :halfs %><br>
+      <%= f.number_field :halfs %>
+    </div>
+    <div class="field">
+      <%= f.label :pogos %><br>
+      <%= f.number_field :pogos %>
+    </div>
+    <div class="field">
+      <%= f.label :blues %><br>
+      <%= f.number_field :blues %>
+    </div>
+    <div class="field">
+      <%= f.label :one_qt %><br>
+      <%= f.number_field :one_qt %>
+    </div>
+    <div class="field">
+      <%= f.label :two_qt %><br>
+      <%= f.number_field :two_qt %>
+    </div>
+    <div class="field">
+      <%= f.label :three_gal %><br>
+      <%= f.number_field :three_gal %>
+    </div>
+    <div class="field">
+      <%= f.label :alcohol_whipes %><br>
+      <%= f.number_field :alcohol_whipes %>
+    </div>
+    <div class="field">
+      <%= f.label :cookers %><br>
+      <%= f.number_field :cookers %>
+    </div>
+    <div class="field">
+      <%= f.label :cottons %><br>
+      <%= f.number_field :cottons %>
+    </div>
+    <div class="field">
+      <%= f.label :ties %><br>
+      <%= f.number_field :ties %>
+    </div>
+    <div class="field">
+      <%= f.label :bleach %><br>
+      <%= f.number_field :bleach %>
+    </div>
+    <div class="field">
+      <%= f.label :condoms %><br>
+      <%= f.number_field :condoms %>
+    </div>
+    <div class="field">
+      <%= f.label :ascorbic_acid %><br>
+      <%= f.number_field :ascorbic_acid %>
+    </div>
+    <div class="field">
+      <%= f.label :pieces_of_lit %><br>
+      <%= f.number_field :pieces_of_lit %>
+    </div>
+    <div class="field">
+      <%= f.label :narcan %><br>
+      <%= f.number_field :narcan %>
+    </div>
+    <div class="field">
+      <%= f.label :secondary_exchange %><br>
+      <%= f.number_field :secondary_exchange %>
+    </div>
+    <div class="field">
+      <%= f.label :returned_needles %><br>
+      <%= f.number_field :returned_needles %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: "button tiny radius"%> <%= link_to 'Back', exchanges_path, class: "button tiny radius" %>
+    </div>
   </div>
 <% end %>

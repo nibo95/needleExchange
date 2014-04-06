@@ -22,8 +22,7 @@
       <%= f.input :client_id, collection: Client.alphabetical, prompt: "Select Client" %><br>
     </div>
     <div class="field">
-      <%= f.label :visit_time %><br>
-      <%= f.datetime_select :visit_time %>
+      <%= f.input :visit_time, as: :datetime, order: [:month, :day, :year] %>
     </div>
     <div class="actions">
       <%= link_to 'Back', visits_path, class: "button tiny radius" %> <%= f.submit nil, class: "button tiny radius" %>
