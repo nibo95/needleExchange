@@ -46,4 +46,12 @@ class Client < ActiveRecord::Base
     	age -= 1 if Date.today < birth_date + age.years #for days before birthday
  		return age
  	end
+
+ 	def gennewcode
+ 		puts "Enter Old code"
+ 		old_code = gets.chomp
+ 		puts "Enter first two letters of your firstname"
+ 		fn = gets.chomp
+ 		return old_code + fn
+ 	end
 end

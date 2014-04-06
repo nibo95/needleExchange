@@ -54,9 +54,10 @@ class Exchange < ActiveRecord::Base
     	return wkago
     end
 
-    #scope for type of exchange
-    #timeperiod 
-    #location is in visit
+    def returned_needles
+    	return 50*one_qt+100*two_qt+150*three_gal
+    end
+
 
 # method for user(id) = name
 # method 
