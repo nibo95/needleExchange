@@ -21,7 +21,7 @@ class Client < ActiveRecord::Base
 	validates_presence_of :hep_c_result
     
 	scope :new, where('new = ?', true)
-	scope :alphabetically, order('code')
+	scope :alphabetical, order('code')
 	scope :dateadded, order('register_date')
 	scope :age, order('age')
 	scope :neighborhood, lambda {|neighborhood| where('neighborhood = ?', neighborhood)}

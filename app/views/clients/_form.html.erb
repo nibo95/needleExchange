@@ -1,85 +1,76 @@
-<%= form_for(@client) do |f| %>
-  <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+<%= simple_form_for(@client) do |f| %>
+  <div class="small-6 columns">
 
-      <ul>
-      <% @client.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= f.label :code %><br>
+      <%= f.text_field :code %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :has_old_code %><br>
-    <%= f.check_box :has_old_code %>
-  </div>
-  <div class="field">
-    <%= f.label :birth_date %><br>
-    <%= f.datetime_select :birth_date %>
-  </div>
-  <div class="field">
-    <%= f.label :race %><br>
-    <%= f.text_field :race %>
-  </div>
-  <div class="field">
-    <%= f.label :register_date %><br>
-    <%= f.datetime_select :register_date %>
-  </div>
-  <div class="field">
-    <%= f.label :register_location_name %><br>
-    <%= f.text_field :register_location_name %>
-  </div>
-  <div class="field">
-    <%= f.label :new %><br>
-    <%= f.check_box :new %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :how_did_you_hear %><br>
-    <%= f.text_field :how_did_you_hear %>
-  </div>
-  <div class="field">
-    <%= f.label :veterancy %><br>
-    <%= f.check_box :veterancy %>
-  </div>
-  <div class="field">
-    <%= f.label :neighborhood %><br>
-    <%= f.text_field :neighborhood %>
-  </div>
-  <div class="field">
-    <%= f.label :hiv_screen %><br>
-    <%= f.check_box :hiv_screen %>
-  </div>
-  <div class="field">
-    <%= f.label :hiv_result %><br>
-    <%= f.check_box :hiv_result %>
-  </div>
-  <div class="field">
-    <%= f.label :hep_b_screen %><br>
-    <%= f.check_box :hep_b_screen %>
-  </div>
-  <div class="field">
-    <%= f.label :hep_b_result %><br>
-    <%= f.check_box :hep_b_result %>
-  </div>
-  <div class="field">
-    <%= f.label :hep_c_screen %><br>
-    <%= f.check_box :hep_c_screen %>
-  </div>
-  <div class="field">
-    <%= f.label :hep_c_result %><br>
-    <%= f.check_box :hep_c_result %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="field">
+      <%= f.label :has_old_code %><br>
+      <%= f.check_box :has_old_code %>
+    </div>
+    <div class="field">
+      <%= f.label :birth_date %><br>
+      <%= f.datetime_select :birth_date %>
+    </div>
+    <div class="field">
+      <%= f.label :race %><br>
+      <%= f.text_field :race %>
+    </div>
+    <div class="field">
+      <%= f.label :register_date %><br>
+      <%= f.datetime_select :register_date %>
+    </div>
+    <div class="field">
+      <%= f.label :register_location_name %><br>
+      <%= f.text_field :register_location_name %>
+    </div>
+    <div class="field">
+      <%= f.label :new %><br>
+      <%= f.check_box :new %>
+    </div>
+    <div class="field">
+      <%= f.label :gender %><br>
+      <%= f.text_field :gender %>
+    </div>
+    <div class="field">
+      <%= f.label :how_did_you_hear %><br>
+      <%= f.text_field :how_did_you_hear %>
+    </div>
+    <div class="field">
+      <%= f.label :veterancy %><br>
+      <%= f.check_box :veterancy %>
+    </div>
+    <div class="field">
+      <%= f.label :neighborhood %><br>
+      <%= f.text_field :neighborhood %>
+    </div>
+    <div class="field">
+      <%= f.label :hiv_screen %><br>
+      <%= f.check_box :hiv_screen %>
+    </div>
+    <div class="field">
+      <%= f.label :hiv_result %><br>
+      <%= f.check_box :hiv_result %>
+    </div>
+    <div class="field">
+      <%= f.label :hep_b_screen %><br>
+      <%= f.check_box :hep_b_screen %>
+    </div>
+    <div class="field">
+      <%= f.label :hep_b_result %><br>
+      <%= f.check_box :hep_b_result %>
+    </div>
+    <div class="field">
+      <%= f.label :hep_c_screen %><br>
+      <%= f.check_box :hep_c_screen %>
+    </div>
+    <div class="field">
+      <%= f.label :hep_c_result %><br>
+      <%= f.check_box :hep_c_result %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
