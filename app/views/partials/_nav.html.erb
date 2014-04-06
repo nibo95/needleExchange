@@ -1,0 +1,49 @@
+<div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>Prevention Point Pittsburgh</h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <!-- options for curriculums -->
+          <li class="has-dropdown">
+            <%= link_to "Clients", clients_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Clients", clients_path %></li>
+              <li><%= link_to "Add a Client", new_client_path %></li>
+            </ul>
+          </li>
+
+          <!-- options for camps -->
+          <li class="has-dropdown">
+            <%= link_to "Locations", locations_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Locations", locations_path %></li>
+              <li><%= link_to "Add a Location", new_location_path %></li>
+            </ul>
+          </li>
+
+          <!-- options for instructors -->
+          <li class="has-dropdown">
+            <!-- <a href="#">Instructors</a> -->
+            <%= link_to "Visits", visits_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Visits", visits_path %></li>
+              <li><%= link_to "Add a Visit", new_visit_path %></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <!-- <a href="#">Instructors</a> -->
+            <%= link_to "Exchanges", exchanges_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Exchanges", exchanges_path %></li>
+              <li><%= link_to "Add an Exchange", new_exchange_path %></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </div>
