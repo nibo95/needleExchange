@@ -10,16 +10,17 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="small-4 columns">
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: "button tiny radius" %> <%= link_to 'Back', locations_path, class: "button tiny radius" %>
+    </div>
   </div>
 <% end %>

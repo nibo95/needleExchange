@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
 	validates_presence_of :gender
 	validates_format_of :gender, with: /\A[MFT]\z/, message: "Please select valid gender option"
 	validates_presence_of :veterancy
-	validates_presence_of :new
+	validates_presence_of :is_new
 	validates_presence_of :race
 	validates_presence_of :neighborhood
 	validates_presence_of :hiv_screen
@@ -20,26 +20,26 @@ class Client < ActiveRecord::Base
 	validates_presence_of :hep_c_screen
 	validates_presence_of :hep_c_result
     
-	scope :new, where('new = ?', true)
-	scope :alphabetically, order('code')
-	scope :dateadded, order('register_date')
-	scope :age, order('age')
-	scope :neighborhood, lambda {|neighborhood| where('neighborhood = ?', neighborhood)}
-	scope :afamerican, where('race = ?', 'AfAm')
-	scope :white, where('race = ?', 'W')
-	scope :asian, where('race = ?', 'A')
-	scope :latin, where('race = ?', 'L')
-	scope :otherace, where('race = ?', 'O')
-	scope :males, where("gender = ?", 'M')
-	scope :females, where("gender = ?", 'F')
-	scope :transgender, where("gender = ?", 'T')
-	scope :veteran, where('veterancy = ?', true)
-	scope :hiv, where('hiv_screen = ?', true)
-	scope :hepc, where('hep_c_screen = ?', true)
-	scope :hepb, where('hep_b_screen = ?', true)
-	scope :hivpos, where('hiv_result = ?', true)
-	scope :hepbpos, where('hep_b_result = ?', true)
-	scope :hepcpos, where('hep_c_result = ?', true)
+	scope :all_new, -> { where('is_new = ?', true) }
+	scope :alphabetical, -> { order('code') }
+	scope :dateadded, -> { order('register_date') }
+	scope :age, -> { order('age') }
+	scope :neighborhood, ->(neighborhood) { where('neighborhood = ?', neighborhood)}
+	scope :afamerican, -> { where('race = ?', 'AfAm') }
+	scope :white, -> { where('race = ?', 'W') }
+	scope :asian, -> { where('race = ?', 'A') }
+	scope :latin, -> { where('race = ?', 'L') }
+	scope :otherace, -> { where('race = ?', 'O') }
+	scope :males, -> { where("gender = ?", 'M') }
+	scope :females, -> { where("gender = ?", 'F') }
+	scope :transgender, -> { where("gender = ?", 'T') }
+	scope :veteran, -> { where('veterancy = ?', true) }
+	scope :hiv, -> { where('hiv_screen = ?', true) }
+	scope :hepc, -> { where('hep_c_screen = ?', true) }
+	scope :hepb, -> { where('hep_b_screen = ?', true) }
+	scope :hivpos, -> { where('hiv_result = ?', true) }
+	scope :hepbpos, -> { where('hep_b_result = ?', true) }
+	scope :hepcpos, -> { where('hep_c_result = ?', true) }
 	
 	def age
  		age = Date.today.year - birth_date.year + 1

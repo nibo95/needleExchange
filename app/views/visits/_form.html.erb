@@ -1,4 +1,4 @@
-<%= form_for(@visit) do |f| %>
+<%= simple_form_for(@visit) do |f| %>
   <% if @visit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
@@ -10,24 +10,22 @@
       </ul>
     </div>
   <% end %>
+  <div class="small-4 columns">
 
-  <div class="field">
-    <%= f.label :exchange_id %><br>
-    <%= f.number_field :exchange_id %>
-  </div>
-  <div class="field">
-    <%= f.label :location_id %><br>
-    <%= f.number_field :location_id %>
-  </div>
-  <div class="field">
-    <%= f.label :client_id %><br>
-    <%= f.number_field :client_id %>
-  </div>
-  <div class="field">
-    <%= f.label :visit_time %><br>
-    <%= f.datetime_select :visit_time %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="field">
+      <%= f.input :exchange_id, collection: Exchange.all, prompt: "Select Exchange" %><br>
+    </div>
+    <div class="field">
+      <%= f.input :location_id, collection: Location.alphabetical, prompt: "Select Location..." %><br>
+    </div>
+    <div class="field">
+      <%= f.input :client_id, collection: Client.alphabetical, prompt: "Select Client" %><br>
+    </div>
+    <div class="field">
+      <%= f.input :visit_time, as: :datetime, order: [:month, :day, :year] %>
+    </div>
+    <div class="actions">
+      <%= link_to 'Back', visits_path, class: "button tiny radius" %> <%= f.submit nil, class: "button tiny radius" %>
+    </div>
   </div>
 <% end %>

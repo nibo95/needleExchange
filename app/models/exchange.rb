@@ -20,8 +20,7 @@ class Exchange < ActiveRecord::Base
 	validates_numericality_of :pieces_of_lit, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :narcan, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :secondary_exchange, :only_integer => true, :message => "only integer values are permitted"
-    validates_date :created_at, :on_or_before => Date.today
-    validates_date :updated_at, :on_or_before => Date.today
+
     
 	scope :chronological, order('created_at')
 	scope :by_user, lambda {|user_id| where("user_id = ?", user_id) }
