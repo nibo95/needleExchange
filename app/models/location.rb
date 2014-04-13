@@ -8,13 +8,10 @@ class Location < ActiveRecord::Base
 	validates_presence_of :zip
 	validates_presence_of :city
 
-<<<<<<< HEAD
-	scope :alphabetical, order('name')
+	scope :alphabetical, -> { order('name') }
 
 	def address
 		return street + '\n' + city + ', ' + state + ' ' + zip
 	end
-=======
-	scope :alphabetical, -> { order('name') }
->>>>>>> 8772f96ecd17433dc2116585ecb9edc8d7257952
+	
 end

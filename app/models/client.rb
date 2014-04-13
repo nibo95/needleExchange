@@ -47,7 +47,7 @@ class Client < ActiveRecord::Base
  		return age
  	end
 
- 	def genoldcode
+ 	def old_code
  		return code.to(5)
  	end
 end
