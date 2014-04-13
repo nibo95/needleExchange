@@ -19,7 +19,7 @@
       <%= f.input :location_id, collection: Location.alphabetical, prompt: "Select Location..." %><br>
     </div>
     <div class="field">
-      <%= f.input :client_id, collection: Client.alphabetical, prompt: "Select Client" %><br>
+      <%= f.collection_select :client_id, Client.alphabetical, :id, :code, prompt: "Select Client" %><br>
     </div>
     <div class="field">
       <%= f.input :visit_time, as: :datetime, order: [:month, :day, :year] %>

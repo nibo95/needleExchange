@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
 	validates_presence_of :gender
 	validates_format_of :gender, with: /\A[MFT]\z/, message: "Please select valid gender option"
 	validates_presence_of :veterancy
-	validates_presence_of :is_new
+	# validates_presence_of :is_new
 	validates_presence_of :race
 	validates_presence_of :neighborhood
 	validates_presence_of :hiv_screen
