@@ -4,5 +4,5 @@ class Location < ActiveRecord::Base
     
 	validates_presence_of :name
 
-	scope :alphabetical, order('name')
+	scope :alphabetical, -> { order('name') }
 end

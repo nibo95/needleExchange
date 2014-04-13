@@ -47,11 +47,7 @@ class Client < ActiveRecord::Base
  		return age
  	end
 
- 	def gennewcode
- 		puts "Enter Old code"
- 		old_code = gets.chomp
- 		puts "Enter first two letters of your firstname"
- 		fn = gets.chomp
- 		return old_code + fn
+ 	def genoldcode
+ 		return code.to(5)
  	end
 end
