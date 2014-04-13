@@ -6,8 +6,23 @@
 </p>
 
 <p>
-  <strong>Address:</strong>
-  <%= @location.address %>
+  <strong>Street:</strong>
+  <%= @location.street %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @location.state %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @location.city %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @location.zip %>
 </p>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |

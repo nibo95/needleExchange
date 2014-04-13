@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Exchange</th>
       <th>Location</th>
       <th>Client</th>
       <th>Visit time</th>
@@ -16,7 +15,6 @@
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= visit.exchange_id %></td>
         <td><%= visit.location_id %></td>
         <td><%= visit.client_id %></td>
         <td><%= visit.visit_time %></td>
