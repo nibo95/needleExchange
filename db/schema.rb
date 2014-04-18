@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413204502) do
+ActiveRecord::Schema.define(version: 20140418073705) do
 
   create_table "clients", force: true do |t|
     t.string   "code"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20140413204502) do
     t.boolean  "hep_c_result"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_new"
   end
 
   create_table "exchanges", force: true do |t|

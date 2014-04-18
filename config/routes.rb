@@ -8,7 +8,14 @@ NeedleExchange::Application.routes.draw do
   resources :visits
 
   resources :clients
+
+  # resources :reports
   
+
+  get 'home', to: 'home#index', as: :home
+  get 'reports', to: 'reports#index', as: :reports
+  get 'generate', to: 'reports#generate', as: :generate
+
   root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

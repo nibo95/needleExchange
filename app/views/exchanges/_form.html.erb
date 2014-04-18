@@ -1,4 +1,4 @@
-<%= form_for(@exchange) do |f| %>
+<%= simple_form_for(@exchange, html: { class: 'form-horizonta' }) do |f| %>
   <% if @exchange.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@exchange.errors.count, "error") %> prohibited this exchange from being saved:</h2>
@@ -13,13 +13,13 @@
 
   <div class="small-2 columns">
     <div class="field">
-      <%= f.label :visit_id %><br>
-      <%= f.number_field :visit_id %>
+      <%= f.collection_select :visit_id, Visit.chronological, :id, :visit_time, prompt: "Select Visit" %>
     </div>
     <div class="field">
       <%= f.label :user_id %><br>
       <%= f.number_field :user_id %>
     </div>
+    <h3>Needles</h3>
     <div class="field">
       <%= f.label :ultrafines %><br>
       <%= f.number_field :ultrafines %>
