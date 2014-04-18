@@ -19,7 +19,7 @@
       <%= f.label :user_id %><br>
       <%= f.number_field :user_id %>
     </div>
-    <h3>Needles</h3>
+    <h5>Supplies for Pickup</h5><br>
     <div class="field">
       <%= f.label :ultrafines %><br>
       <%= f.number_field :ultrafines %>
@@ -35,18 +35,6 @@
     <div class="field">
       <%= f.label :blues %><br>
       <%= f.number_field :blues %>
-    </div>
-    <div class="field">
-      <%= f.label :one_qt %><br>
-      <%= f.number_field :one_qt %>
-    </div>
-    <div class="field">
-      <%= f.label :two_qt %><br>
-      <%= f.number_field :two_qt %>
-    </div>
-    <div class="field">
-      <%= f.label :three_gal %><br>
-      <%= f.number_field :three_gal %>
     </div>
     <div class="field">
       <%= f.label :alcohol_whipes %><br>
@@ -87,6 +75,16 @@
     <div class="field">
       <%= f.label :secondary_exchange %><br>
       <%= f.number_field :secondary_exchange %>
+    </div>
+    <h5>Supplies Returned</h5><br>
+    <div class="field">
+      <%= f.input :one_qt, label: "1QT Containers", collection: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Select how many..." %>
+    </div>
+    <div class="field">
+      <%= f.input :two_qt, label: "2QT Containers", collection: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Select how many..." %>
+    </div>
+    <div class="field">
+      <%= f.input :three_gal, label: "3GAL Containers", collection: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], prompt: "Select how many..." %>
     </div>
     <div class="field">
       <%= f.label :returned_needles %><br>
