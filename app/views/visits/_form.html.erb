@@ -1,4 +1,4 @@
-<%= simple_form_for(@visit) do |f| %>
+<%= simple_form_for(@visit, html: { class: 'form-horizonta' }) do |f| %>
   <% if @visit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>
@@ -13,13 +13,11 @@
   <div class="small-4 columns">
 
     <div class="field">
-      <%= f.input :exchange_id, collection: Exchange.all, prompt: "Select Exchange" %><br>
-    </div>
-    <div class="field">
       <%= f.input :location_id, collection: Location.alphabetical, prompt: "Select Location..." %><br>
     </div>
     <div class="field">
-      <%= f.input :client_id, collection: Client.alphabetical, prompt: "Select Client" %><br>
+    <%= f.label :client_id %>
+      <%= f.collection_select :client_id, Client.alphabetical, :id, :code, prompt: "Select Client" %><br>
     </div>
     <div class="field">
       <%= f.input :visit_time, as: :datetime, order: [:month, :day, :year] %>

@@ -43,6 +43,14 @@
               <li><%= link_to "Add an Exchange", new_exchange_path %></li>
             </ul>
           </li>
+
+          <li class="has-dropdown">
+            <!-- <a href="#">Instructors</a> -->
+            <%= link_to "Reports", generate_path %>
+            <ul class="dropdown">
+              <li><%= link_to "Generate Reports", generate_path %></li>
+            </ul>
+          </li>
         </ul>
       </section>
     </nav>

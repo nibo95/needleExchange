@@ -1,0 +1,35 @@
+<h1>Reports</h1>
+
+<body>
+    <% startd = request.original_url.split("?").last.split("&").first.split("=").last %>
+    <% endd = request.original_url.split("&").last.split("=").last %>
+
+	<h5>Amount of unduplicated users served from <%= startd %> to <%= endd %></h5>
+	<table>
+		<tr>
+		<% Location.all.each do |location| %>
+			<th><%= location.name %></th>
+		<% end %>
+		</tr>
+		<tr>
+		<% Location.all.each do |location| %>
+			<% count = 0 %>
+			<% codes = Array.new %>
+			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
+				<% if codes.index(visit.client.code) == nil %>
+					<% codes = codes + [visit.client.code] %>
+					<% count = count + 1 %>
+				<% end %>
+			<% end %>
+			<td><%= count %></td>
+		<% end %>
+		</tr>
+	</table>
+
+	<% count = 0 %>
+	<% Client.all.after_date(startd).before_date(endd).each do |client| %>
+		<% count = count + 1 %>
+	<% end %>
+
+
+</body>

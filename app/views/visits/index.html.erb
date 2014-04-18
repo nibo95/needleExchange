@@ -3,26 +3,18 @@
 <table>
   <thead>
     <tr>
-      <th>Exchange</th>
       <th>Location</th>
       <th>Client</th>
       <th>Visit time</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @visits.each do |visit| %>
       <tr>
-        <td><%= visit.exchange_id %></td>
-        <td><%= visit.location_id %></td>
-        <td><%= visit.client_id %></td>
-        <td><%= visit.visit_time %></td>
-        <td><%= link_to 'Show', visit %></td>
-        <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-        <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to visit.location.name, visit.location %></td>
+        <td><%= link_to visit.client.code, visit.client %></td>
+        <td><%= link_to visit.visit_time, visit %></td>
       </tr>
     <% end %>
   </tbody>

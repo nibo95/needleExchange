@@ -27,12 +27,7 @@
 
 <p>
   <strong>Register location name:</strong>
-  <%= @client.register_location_name %>
-</p>
-
-<p>
-  <strong>New:</strong>
-  <%= @client.new %>
+  <%= Location.find(@client.register_location_name).name %>
 </p>
 
 <p>
@@ -86,4 +81,5 @@
 </p>
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Destroy', @client, method: :delete, data: { confirm: 'Are you sure?' } %>ƒ |
 <%= link_to 'Back', clients_path %>

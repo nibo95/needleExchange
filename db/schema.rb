@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140413213218) do
+=======
+ActiveRecord::Schema.define(version: 20140418073705) do
+>>>>>>> upstream/master
 
   create_table "clients", force: true do |t|
     t.string   "code"
@@ -32,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140413213218) do
     t.boolean  "hep_c_result"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_new"
   end
 
   create_table "exchanges", force: true do |t|
@@ -64,9 +67,12 @@ ActiveRecord::Schema.define(version: 20140413213218) do
 
   create_table "locations", force: true do |t|
     t.string   "name"
-    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
   end
 
   create_table "users", force: true do |t|
@@ -78,7 +84,6 @@ ActiveRecord::Schema.define(version: 20140413213218) do
   end
 
   create_table "visits", force: true do |t|
-    t.integer  "exchange_id"
     t.integer  "location_id"
     t.integer  "client_id"
     t.datetime "visit_time"

@@ -1,4 +1,54 @@
-<%= simple_form_for(@client) do |f| %>
+<script>
+  window.onload = function(){
+    console.log(document.getElementById("hiv_result"));
+    document.getElementById("hiv_result").style.display = "none";
+    document.getElementById("hep_b_result").style.display = "none";
+    document.getElementById("hep_c_result").style.display = "none";
+  };
+  function show_hiv() {
+    if (document.getElementById("hiv_result").style.display === "inline-block")
+    {
+      document.getElementById("hiv_result").style.display = "none"
+    }
+    else
+    {
+      document.getElementById("hiv_result").style.display = "inline-block"
+    }
+  };
+  function show_hep_b() {
+    if (document.getElementById("hep_b_result").style.display === "inline-block")
+    {
+      document.getElementById("hep_b_result").style.display = "none"
+    }
+    else
+    {
+      document.getElementById("hep_b_result").style.display = "inline-block"
+    }
+  };
+  function show_hep_c() {
+    if (document.getElementById("hep_c_result").style.display === "inline-block")
+    {
+      document.getElementById("hep_c_result").style.display = "none"
+    }
+    else
+    {
+      document.getElementById("hep_c_result").style.display = "inline-block"
+    }
+  };
+</script>
+
+<%= simple_form_for(@client, html: { class: 'form-horizonta' }) do |f| %>
+  <% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @client.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="small-6 columns">
 
     <div class="field">
@@ -6,68 +56,81 @@
       <%= f.text_field :code %>
     </div>
     <div class="field">
-      <%= f.label :has_old_code %><br>
-      <%= f.check_box :has_old_code %>
+      <%= f.input :has_old_code %>
     </div>
     <div class="field">
-      <%= f.label :birth_date %><br>
-      <%= f.datetime_select :birth_date %>
+      <%= f.input :birth_date, as: :date, order: [:month, :day, :year] %>
+
     </div>
     <div class="field">
-      <%= f.label :race %><br>
-      <%= f.text_field :race %>
+      <%= f.label :race %>
+      <%= f.radio_button :race, "W" %>
+      <%= f.label :race, "White", :value => "W" %>
+      <%= f.radio_button :race, "Afam" %>
+      <%= f.label :race, "African American", :value => "Afam" %>
+      <%= f.radio_button :race, "A" %>
+      <%= f.label :race, "Asian", :value => "A" %>
+      <%= f.radio_button :race, "M" %>
+      <%= f.label :race, "Latino", :value => "L" %>
+      <%= f.radio_button :race, "F" %>
+      <%= f.label :race, "Other", :value => "O" %>
     </div>
     <div class="field">
       <%= f.label :register_date %><br>
-      <%= f.datetime_select :register_date %>
+      <%= f.date_select :register_date %>
     </div>
     <div class="field">
-      <%= f.label :register_location_name %><br>
-      <%= f.text_field :register_location_name %>
-    </div>
-    <div class="field">
-      <%= f.label :is_new %><br>
-      <%= f.check_box :is_new %>
+      <%= f.input :register_location_name, collection: Location.alphabetical, prompt: "Select Location..." %>
     </div>
     <div class="field">
       <%= f.label :gender %><br>
-      <%= f.text_field :gender %>
+      <%= f.radio_button :gender, "M" %>
+      <%= f.label :gender, "Male", :value => "M" %>
+      <%= f.radio_button :gender, "F" %>
+      <%= f.label :gender, "Female", :value => "F" %>
+      <%= f.radio_button :gender, "T" %>
+      <%= f.label :gender, "Transgender", :value => "T" %>
     </div>
     <div class="field">
       <%= f.label :how_did_you_hear %><br>
       <%= f.text_field :how_did_you_hear %>
     </div>
     <div class="field">
-      <%= f.label :veterancy %><br>
-      <%= f.check_box :veterancy %>
+      <%= f.input :veterancy %>
     </div>
     <div class="field">
       <%= f.label :neighborhood %><br>
       <%= f.text_field :neighborhood %>
     </div>
     <div class="field">
-      <%= f.label :hiv_screen %><br>
-      <%= f.check_box :hiv_screen %>
+      <%= f.input :hiv_screen, :input_html => {:onchange => "Javascript:show_hiv();"} %>
     </div>
-    <div class="field">
+    <div class="field" id="hiv_result">
       <%= f.label :hiv_result %><br>
-      <%= f.check_box :hiv_result %>
+      <%= f.radio_button :hiv_result, true %>
+      <%= f.label :hiv_result, "Yes", :value => true %>
+      <%= f.radio_button :hiv_result, false, {:checked => true} %>
+      <%= f.label :hiv_result, "No", :value => false %>
     </div>
     <div class="field">
-      <%= f.label :hep_b_screen %><br>
-      <%= f.check_box :hep_b_screen %>
+      <%= f.input :hep_b_screen, :input_html => {:onchange => "Javascript:show_hep_b();"} %>
     </div>
-    <div class="field">
+    <div class="field" id="hep_b_result">
       <%= f.label :hep_b_result %><br>
-      <%= f.check_box :hep_b_result %>
+      <%= f.radio_button :hep_b_result, true %>
+      <%= f.label :hep_b_result, "Yes", :value => true %>
+      <%= f.radio_button :hep_b_result, false, {:checked => true} %>
+      <%= f.label :hep_b_result, "No", :value => false %>
     </div>
     <div class="field">
-      <%= f.label :hep_c_screen %><br>
-      <%= f.check_box :hep_c_screen %>
+      <%= f.input :hep_c_screen, :input_html => {:onchange => "Javascript:show_hep_c();"} %>
     </div>
-    <div class="field">
+    <div class="field" id="hep_c_result">
       <%= f.label :hep_c_result %><br>
-      <%= f.check_box :hep_c_result %>
+      <%= f.radio_button :hep_c_result, true %>
+      <%= f.label :hep_c_result, "Yes", :value => true %>
+      <%= f.radio_button :hep_c_result, false, {:checked => true} %>
+      <%= f.label :hep_c_result, "No", :value => false %>
     </div>
     <div class="actions">
       <%= f.submit %>
