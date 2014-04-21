@@ -69,6 +69,6 @@ class ExchangesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exchange_params
-      params.require(:exchange).permit(:visit_id, :user_id, :ultrafines, :halfs, :pogos, :blues, :one_qt, :two_qt, :three_gal, :alcohol_whipes, :cookers, :cottons, :ties, :bleach, :condoms, :ascorbic_acid, :pieces_of_lit, :narcan, :secondary_exchange, :returned_needles)
+      params.require(:exchange).permit(:visit_id, :user_id, :ultrafines, :halfs, :pogos, :blues, :one_qt, :two_qt, :three_gal, :eight_gal, :bleach_bottle, :alcohol_whipes, :cookers, :cottons, :ties, :bleach, :condoms, :ascorbic_acid, :pieces_of_lit, :narcan, :secondary_exchange, :returned_needles)
     end
 end

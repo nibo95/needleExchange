@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20140418073705) do
     t.integer  "returned_needles"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "eight_gal"
+    t.integer  "bleach_bottle"
   end
 
   create_table "locations", force: true do |t|

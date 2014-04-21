@@ -38,18 +38,26 @@
     </div>
     <div class="field">
       <%= f.label :one_qt %><br>
-      <%= f.number_field :one_qt %>
+      <%= f.number_field :one_qt, :value => 0 %>
     </div>
     <div class="field">
       <%= f.label :two_qt %><br>
-      <%= f.number_field :two_qt %>
+      <%= f.number_field :two_qt, :value => 0 %>
     </div>
     <div class="field">
       <%= f.label :three_gal %><br>
-      <%= f.number_field :three_gal %>
+      <%= f.number_field :three_gal, :value => 0 %>
     </div>
     <div class="field">
-      <%= f.label :alcohol_whipes %><br>
+      <%= f.label :eight_gal %><br>
+      <%= f.number_field :eight_gal, :value => 0 %>
+    </div>
+    <div class="field">
+      <%= f.label :bleach_bottle %><br>
+      <%= f.number_field :bleach_bottle, :value => 0 %>
+    </div>
+    <div class="field">
+      <%= f.label :alcohol_wipes %><br>
       <%= f.number_field :alcohol_whipes %>
     </div>
     <div class="field">

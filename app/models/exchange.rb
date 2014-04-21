@@ -10,6 +10,9 @@ class Exchange < ActiveRecord::Base
 	validates_numericality_of :one_qt, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :two_qt, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :three_gal, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
+	validates_numericality_of :eight_gal, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
+	validates_numericality_of :bleach_bottle, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
+
 	validates_numericality_of :alcohol_whipes, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :cookers, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :cottons, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
@@ -37,6 +40,8 @@ class Exchange < ActiveRecord::Base
     scope :one_qt1m, -> { where('one_qt > ?', 0) }
     scope :two_qt1m, -> { where('two_qt > ?', 0) }
     scope :three_gal1m, -> { where('three_gal > ?', 0) }
+    scope :eight_gal1m, -> { where('eight_gal > ?', 0) }
+    scope :bleach_bottle1m, -> { where('bleach_bottle > ?', 0) }
 
     #scoping for non-needles
     scope :alcohol_whipes1m, -> { where('alcohol_whipes > ?', 0) }
@@ -57,7 +62,7 @@ class Exchange < ActiveRecord::Base
     end
 
     def returned_needles
-    	return 50*one_qt+100*two_qt+150*three_gal
+    	return 75*one_qt+100*two_qt+700*three_gal+1200*eight_gal+200*bleach_bottle
     end
 
 
