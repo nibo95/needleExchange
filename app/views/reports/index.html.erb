@@ -42,7 +42,7 @@
 		<% Location.all.each do |location| %>
 			<% count = 0 %>
 			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
-				<% if register_date == visit.created_at%>
+				<% if visit.client.register_date == visit.created_at%>
 					<% count = count + 1 %>
 				<% end %>
 			<% end %>
@@ -121,14 +121,14 @@
 			<% condomnum = 0 %>
 			<% codes = Array.new %>
 			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
-				<% if codes.index(visit.client.code) == nil and visit.exchange.condom > 0 %>
+				<% if codes.index(visit.client.code) == nil and visit.exchange.condoms > 0 %>
 					<% codes = codes + [visit.client.code] %>
 					<% count = count + 1 %>
-					<% condomnum = condomnum + visit.exchange.condom %>
+					<% condomnum = condomnum + visit.exchange.condoms %>
 				<% end %>
 			<% end %>
-			<td><%= count+ "people"%></td>
-			<td><%= condomnum+ "condoms"%></td>
+			<td><%= count%></td>
+			<td><%= condomnum%></td>
 		<% end %>
 		</tr>
 	</table>
