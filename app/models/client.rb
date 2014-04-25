@@ -2,7 +2,8 @@ class Client < ActiveRecord::Base
     has_many :visits
 	has_many :exchanges, through: :visits
     
-	validates_presence_of :code
+	validates_presence_of :code 
+	validates_format_of :code, with: /\A[A-Z]{2}\d{4}[A-Z]{2}\z/, message: "Please enter valid code"
 	validates_presence_of :has_old_code, allow_blank: true
 	validates_date :birth_date
 	validates_date :register_date

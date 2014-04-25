@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Visit:</strong>
-  <%= @exchange.visit_id %>
+  <strong>Client:</strong>
+  <%= link_to @exchange.visit.client.code, @exchange.visit.client %>
 </p>
 
 <p>
@@ -11,49 +11,68 @@
 </p>
 
 <p>
-  <strong>Ultrafines:</strong>
-  <%= @exchange.ultrafines %>
+<strong>Needles Received by Client:</strong>
+<table>
+  <tr>
+    <th>Ultrafines</th>
+    <th>Halfs</th>
+    <th>Pogos</th>
+    <th>Blues</th>
+    <th>Total Needles Received</th>
+  </tr>
+  <tr>
+    <td><%= @exchange.ultrafines %></td>
+    <td><%= @exchange.halfs %></td>
+    <td><%= @exchange.pogos %></td>
+    <td><%= @exchange.blues %></td>
+    <td><%= @exchange.total_needles_received %></td>
+  </tr>
+</table>
 </p>
 
 <p>
-  <strong>Halfs:</strong>
-  <%= @exchange.halfs %>
+  <strong>Needles Returned by Client:</strong>
+  <table>
+  <tr>
+    <th>Needles</th>
+    <th>1QT</th>
+    <th>2QT</th>
+    <th>3GAL</th>
+    <th>8GAl</th>
+    <th>Bleach</th>
+    <th>Total Needles Returned</th>
+  </tr>
+  <tr>
+    <td><%= @exchange.returned_needles %></td>
+    <td><%= @exchange.one_qt %></td>
+    <td><%= @exchange.two_qt %></td>
+    <td><%= @exchange.three_gal %></td>
+    <td><%= @exchange.eight_gal %></td>
+    <td><%= @exchange.bleach_bottle %></td>
+    <td><%= @exchange.total_returned_needles %></td>
+  </tr>
+</table>
 </p>
 
-<p>
-  <strong>Pogos:</strong>
-  <%= @exchange.pogos %>
-</p>
-
-<p>
-  <strong>Blues:</strong>
-  <%= @exchange.blues %>
-</p>
-
-<p>
-  <strong>One qt:</strong>
-  <%= @exchange.one_qt %>
-</p>
-
-<p>
-  <strong>Two qt:</strong>
-  <%= @exchange.two_qt %>
-</p>
-
-<p>
-  <strong>Three gal:</strong>
-  <%= @exchange.three_gal %>
-</p>
-
-<p>
-  <strong>Eight gal:</strong>
-  <%= @exchange.eight_gal %>
-</p>
-
-<p>
-  <strong>Bleach Bottles:</strong>
-  <%= @exchange.bleach_bottle %>
-</p>
+<!-- <p>
+  <strong>Other Supplies Received:</strong>
+  <table>
+  <tr>
+    <th>Alcohol Wipes</th>
+    <th>Cookers</th>
+    <th>Cottons</th>
+    <th>Ties</th>
+    <th>Total Needles Received</th>
+  </tr>
+  <tr>
+    <td><%= @exchange.ultrafines %></td>
+    <td><%= @exchange.halfs %></td>
+    <td><%= @exchange.pogos %></td>
+    <td><%= @exchange.blues %></td>
+    <td><%= @exchange.total_needles_received %></td>
+  </tr>
+</table>
+</p> -->
 
 <p>
   <strong>Alcohol whipes:</strong>
@@ -99,17 +118,20 @@
   <strong>Narcan:</strong>
   <%= @exchange.narcan %>
 </p>
-
-<p>
-  <strong>Secondary exchange:</strong>
-  <%= @exchange.secondary_exchange %>
+ 
+  <% if @exchange.secondary_exchange > 1 %>
+    <p>
+      <strong>Picked up for:</strong>
+      <%= @exchange.secondary_exchange %> additional people
+    </p>
+  <% elsif @exchange.secondary_exchange == 1 %>
+    <p>
+      <strong>Picked up for:</strong>
+      <%= @exchange.secondary_exchange %> additional person
+    </p>
+  <% end %>
 </p>
 
-<p>
-  <strong>Returned needles:</strong>
-  <%= @exchange.returned_needles %>
-</p>
-
-<%= link_to 'Edit', edit_exchange_path(@exchange) %> |
-<%= link_to 'Destroy', @exchange, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', exchanges_path %>
+<%= link_to 'Edit', edit_exchange_path(@exchange), class: "button secondary radius" %>
+<%= link_to 'Destroy', @exchange, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
+<%= link_to 'Back', exchanges_path, class: "button secondary radius" %>

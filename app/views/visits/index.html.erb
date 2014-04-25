@@ -14,7 +14,8 @@
       <tr>
         <td><%= link_to visit.location.name, visit.location %></td>
         <td><%= link_to visit.client.code, visit.client %></td>
-        <td><%= link_to visit.visit_time, visit %></td>
+        <td><%= visit.visit_time %></td>
+        <td><%= link_to 'Details', visit, class: 'button tiny radius' %>
       </tr>
     <% end %>
   </tbody>

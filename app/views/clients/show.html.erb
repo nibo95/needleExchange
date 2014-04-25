@@ -6,13 +6,17 @@
 </p>
 
 <p>
-  <strong>Has old code:</strong>
-  <%= @client.has_old_code %>
+  <strong>Old Code:</strong>
+  <% if @client.has_old_code == true %>
+    <%= @client.old_code %>
+  <% else %>
+    Client does not have an old code
+  <% end %>
 </p>
 
 <p>
   <strong>Birth date:</strong>
-  <%= @client.birth_date %>
+  <%= @client.birth_date.to_date.strftime("%B, %d, %Y") %>
 </p>
 
 <p>
@@ -22,7 +26,7 @@
 
 <p>
   <strong>Register date:</strong>
-  <%= @client.register_date %>
+  <%= @client.register_date.to_date.strftime("%B, %d, %Y") %>
 </p>
 
 <p>
@@ -35,13 +39,15 @@
   <%= @client.gender %>
 </p>
 
-<p>
-  <strong>How did you hear:</strong>
-  <%= @client.how_did_you_hear %>
-</p>
+<% if @client.how_did_you_hear != "" %>
+  <p>
+    <strong>How did you hear:</strong>
+    <%= @client.how_did_you_hear %>
+  </p>
+<% end %>
 
 <p>
-  <strong>Veterancy:</strong>
+  <strong>Veterancy Status:</strong>
   <%= @client.veterancy %>
 </p>
 
@@ -51,35 +57,39 @@
 </p>
 
 <p>
-  <strong>Hiv screen:</strong>
-  <%= @client.hiv_screen %>
+  <strong>HIV Screen Results:</strong>
+  <% if @client.hiv_screen == true and @client.hiv_result == true %>
+    Positive(+)
+  <% elsif @client.hiv_screen == true and @client.hiv_result == false %>
+    Negative(-)
+  <% else %>
+    This Client has not been tested for HIV.
+  <% end %>
 </p>
 
 <p>
-  <strong>Hiv result:</strong>
-  <%= @client.hiv_result %>
+  <strong>Hepatitis B Screen Results:</strong>
+  <% if @client.hep_b_screen == true and @client.hep_b_result == true %>
+    Positive(+)
+  <% elsif @client.hep_b_screen == true and @client.hep_b_result == false %>
+    Negative(-)
+  <% else %>
+    This Client has not been tested for Hepatitis B.
+  <% end %>
 </p>
 
 <p>
-  <strong>Hep b screen:</strong>
-  <%= @client.hep_b_screen %>
-</p>
-
-<p>
-  <strong>Hep b result:</strong>
-  <%= @client.hep_b_result %>
-</p>
-
-<p>
-  <strong>Hep c screen:</strong>
+  <strong>Hepatitis C Screen Results:</strong>
   <%= @client.hep_c_screen %>
+  <% if @client.hep_c_screen == true and @client.hep_c_result == true %>
+    Positive(+)
+  <% elsif @client.hep_c_screen == true and @client.hep_c_result == false %>
+    Negative(-)
+  <% else %>
+    This Client has not been tested for Hepatitis C.
+  <% end %>
 </p>
 
-<p>
-  <strong>Hep c result:</strong>
-  <%= @client.hep_c_result %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Destroy', @client, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Edit', edit_client_path(@client), class: "button secondary radius" %>
+<%= link_to 'Destroy', @client, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
+<%= link_to 'Back', clients_path, class: "button secondary radius" %>

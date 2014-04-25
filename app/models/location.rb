@@ -7,6 +7,7 @@ class Location < ActiveRecord::Base
 	validates_presence_of :state
 	validates_presence_of :zip
 	validates_presence_of :city
+	validates_format_of :zip, with: /\A\d{5}\z/, message: "Please enter a valid zip code"
 
 	scope :alphabetical, -> { order('name') }
 

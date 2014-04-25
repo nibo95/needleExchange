@@ -19,9 +19,9 @@
     <% @clients.each do |client| %>
       <tr>
         <td><%= link_to client.code, client %></td>
-        <td><%= client.birth_date %></td>
+        <td><%= client.birth_date.to_date.strftime("%B %d, %Y") %></td>
         <td><%= client.race %></td>
-        <td><%= client.register_date %></td>
+        <td><%= client.register_date.to_date.strftime("%B %d, %Y") %></td>
         <td><%= Location.find(client.register_location_id).name %></td>
         <td><%= client.gender %></td>
         <td><%= client.veterancy %></td>

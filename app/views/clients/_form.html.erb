@@ -59,7 +59,7 @@
       <%= f.input :has_old_code %>
     </div>
     <div class="field">
-      <%= f.input :birth_date, as: :date, order: [:month, :day, :year] %>
+      <%= f.input :birth_date, as: :date, order: [:month, :day, :year], start_year: Date.today.year - 100, end_year: Date.today.year %>
 
     </div>
     <div class="field">
@@ -104,34 +104,34 @@
       <%= f.text_field :neighborhood %>
     </div>
     <div class="field">
-      <%= f.input :hiv_screen, :input_html => {:onchange => "Javascript:show_hiv();"} %>
+      <%= f.input :hiv_screen, label: "HIV Screen", :input_html => {:onchange => "Javascript:show_hiv();"} %>
     </div>
-    <div class="field" id="hiv_result">
-      <%= f.label :hiv_result %><br>
+    <div class="field" id="hiv_result" style="display: none">
+      <%= f.label :hiv_result, "HIV Screen Results" %><br>
       <%= f.radio_button :hiv_result, true %>
-      <%= f.label :hiv_result, "Yes", :value => true %>
+      <%= f.label :hiv_result, "Positive(+)", :value => true %>
       <%= f.radio_button :hiv_result, false, {:checked => true} %>
-      <%= f.label :hiv_result, "No", :value => false %>
+      <%= f.label :hiv_result, "Negative(-)", :value => false %>
     </div>
     <div class="field">
-      <%= f.input :hep_b_screen, :input_html => {:onchange => "Javascript:show_hep_b();"} %>
+      <%= f.input :hep_b_screen, label: "Hepatitis B Screen", :input_html => {:onchange => "Javascript:show_hep_b();"} %>
     </div>
-    <div class="field" id="hep_b_result">
-      <%= f.label :hep_b_result %><br>
+    <div class="field" id="hep_b_result" style="display: none">
+      <%= f.label :hep_b_result, "Hepatitis B Screen Results" %><br>
       <%= f.radio_button :hep_b_result, true %>
-      <%= f.label :hep_b_result, "Yes", :value => true %>
+      <%= f.label :hep_b_result, "Positive(+)", :value => true %>
       <%= f.radio_button :hep_b_result, false, {:checked => true} %>
-      <%= f.label :hep_b_result, "No", :value => false %>
+      <%= f.label :hep_b_result, "Negative(-)", :value => false %>
     </div>
     <div class="field">
-      <%= f.input :hep_c_screen, :input_html => {:onchange => "Javascript:show_hep_c();"} %>
+      <%= f.input :hep_c_screen, label: "Hepatitis C Screen", :input_html => {:onchange => "Javascript:show_hep_c();"} %>
     </div>
-    <div class="field" id="hep_c_result">
-      <%= f.label :hep_c_result %><br>
+    <div class="field" id="hep_c_result" style="display: none">
+      <%= f.label :hep_c_result, "Hepatitis C Screen Results" %><br>
       <%= f.radio_button :hep_c_result, true %>
-      <%= f.label :hep_c_result, "Yes", :value => true %>
+      <%= f.label :hep_c_result, "Positive(+)", :value => true %>
       <%= f.radio_button :hep_c_result, false, {:checked => true} %>
-      <%= f.label :hep_c_result, "No", :value => false %>
+      <%= f.label :hep_c_result, "Negative(-)", :value => false %>
     </div>
     <div class="actions">
       <%= f.submit nil, class: "button secondary radius" %> <%= link_to 'Back', clients_path, class: "button secondary radius" %>

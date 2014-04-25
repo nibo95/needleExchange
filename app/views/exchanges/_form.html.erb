@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@exchange, html: { class: 'form-horizonta' }) do |f| %>
   <% if @exchange.errors.any? %>
     <div id="error_explanation">
@@ -11,8 +12,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.collection_select :visit_id, Visit.chronological, :id, :visit_time, prompt: "Select Visit" %>
+  <div class="field" style="display: none">
+    <%= f.number_field :visit_id, :value => Visit.last.id %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br>

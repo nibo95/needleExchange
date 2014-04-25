@@ -2,12 +2,12 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @visit.location_id %>
+  <%= @visit.location.name %>
 </p>
 
 <p>
   <strong>Client:</strong>
-  <%= @visit.client_id %>
+  <%= @visit.client.code %>
 </p>
 
 <p>
@@ -15,6 +15,6 @@
   <%= @visit.visit_time %>
 </p>
 
-<%= link_to 'Edit', edit_visit_path(@visit) %> |
-<%= link_to 'Destroy', @visit, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', visits_path %>
+<%= link_to 'Edit', edit_visit_path(@visit), class: "button secondary radius" %>
+<%= link_to 'Destroy', @visit, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
+<%= link_to 'Back', visits_path, class: "button secondary radius" %>
