@@ -80,7 +80,6 @@
 
 <p>
   <strong>Hepatitis C Screen Results:</strong>
-  <%= @client.hep_c_screen %>
   <% if @client.hep_c_screen == true and @client.hep_c_result == true %>
     Positive(+)
   <% elsif @client.hep_c_screen == true and @client.hep_c_result == false %>
