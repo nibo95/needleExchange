@@ -1,10 +1,10 @@
 <script>
-  window.onload = function(){
+  $(document).ready(function(){
     console.log(document.getElementById("hiv_result"));
     document.getElementById("hiv_result").style.display = "none";
     document.getElementById("hep_b_result").style.display = "none";
     document.getElementById("hep_c_result").style.display = "none";
-  };
+  });
   function show_hiv() {
     if (document.getElementById("hiv_result").style.display === "inline-block")
     {
@@ -80,7 +80,8 @@
       <%= f.date_select :register_date %>
     </div>
     <div class="field">
-      <%= f.input :register_location_name, collection: Location.alphabetical, prompt: "Select Location..." %>
+      <%= f.label :register_location_id %><br>
+      <%= f.collection_select :register_location_id, Location.alphabetical, :id, :name, prompt: "Select Location" %>
     </div>
     <div class="field">
       <%= f.label :gender %><br>
@@ -133,7 +134,7 @@
       <%= f.label :hep_c_result, "No", :value => false %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit nil, class: "button secondary radius" %> <%= link_to 'Back', clients_path, class: "button secondary radius" %>
     </div>
   </div>
 <% end %>

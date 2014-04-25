@@ -26,10 +26,105 @@
 		</tr>
 	</table>
 
-	<% count = 0 %>
-	<% Client.all.after_date(startd).before_date(endd).each do |client| %>
-		<% count = count + 1 %>
-	<% end %>
+	<h5>Amount of unduplicated users registered from <%= startd %> to <%= endd %></h5>
+	<table>
+		<tr>
+		<% Location.all.each do |location| %>
+			<th><%= location.name %></th>
+		<% end %>
+		</tr>
+		<tr>
+		<% Location.all.each do |location| %>
+			<% count = 0 %>
+			<% Client.all.after_date(startd).before_date(endd).by_location(location).each do |client| %>
+				<% count = count + 1 %>
+			<% end %>
+			<td><%= count %></td>
+		<% end %>
+		</tr>
+	</table>
+	
 
+	<h5>Amount of returned needles from <%= startd %> to <%= endd %></h5>
+	<table>
+		<tr>
+		<% Location.all.each do |location| %>
+			<th><%= location.name %></th>
+		<% end %>
+		</tr>
+		<tr>
+		<% Location.all.each do |location| %>
+			<% count = 0 %>
+			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
+					<% count = count + visit.exchange.total_returned_needles %>
+			<% end %>
+			<td><%= count %></td>
+		<% end %>
+		</tr>
+	</table>
 
+	<h5>number of unduplicated users who received naloxone from <%= startd %> to <%= endd %></h5>
+	<table>
+		<tr>
+		<% Location.all.each do |location| %>
+			<th><%= location.name %></th>
+		<% end %>
+		</tr>
+		<tr>
+		<% Location.all.each do |location| %>
+			<% count = 0 %>
+			<% codes = Array.new %>
+			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
+				<% if codes.index(visit.client.code) == nil and visit.exchange.narcan > 0 %>
+					<% codes = codes + [visit.client.code] %>
+					<% count = count + 1 %>
+				<% end %>
+			<% end %>
+			<td><%= count %></td>
+		<% end %>
+		</tr>
+	</table>
+
+	<h5>number of unduplicated users who received condom and the number of condoms they received from <%= startd %> to <%= endd %></h5>
+	<table>
+		<tr>
+		<% Location.all.each do |location| %>
+			<th><%= location.name %></th>
+		<% end %>
+		</tr>
+		<tr>
+		<% Location.all.each do |location| %>
+			<% count = 0 %>
+			<% condomnum = 0 %>
+			<% codes = Array.new %>
+			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
+				<% if codes.index(visit.client.code) == nil and visit.exchange.condoms > 0 %>
+					<% codes = codes + [visit.client.code] %>
+					<% count = count + 1 %>
+					<% condomnum = condomnum + visit.exchange.condoms %>
+				<% end %>
+			<% end %>
+			<td><%= count %> People <%= condomnum %> Condoms</td>
+		<% end %>
+		</tr>
+	</table>
+
+	<h5>total number of syringes given from <%= startd %> to <%= endd %></h5>
+	<table>
+		<tr>
+		<% Location.all.each do |location| %>
+			<th><%= location.name %></th>
+		<% end %>
+		</tr>
+		<tr>
+		<% Location.all.each do |location| %>
+			<% count = 0 %>
+			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
+					<% count = count + visit.exchange.total_needles_received %>
+			<% end %>
+			<td><%= count %></td>
+		<% end %>
+		</tr>
+	</table>
+	<%= link_to 'Back', generate_path, class: "button secondary radius" %>
 </body>

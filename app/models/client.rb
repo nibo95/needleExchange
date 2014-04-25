@@ -6,7 +6,7 @@ class Client < ActiveRecord::Base
 	validates_presence_of :has_old_code, allow_blank: true
 	validates_date :birth_date
 	validates_date :register_date
-	validates_presence_of :register_location_name
+	validates_presence_of :register_location_id
 	validates_presence_of :gender
 	validates_format_of :gender, with: /\A[MFT]\z/, message: "Please select valid gender option"
 	validates_presence_of :veterancy, allow_blank: true
@@ -22,6 +22,7 @@ class Client < ActiveRecord::Base
 	scope :alphabetical, -> { order('code') }
 	scope :dateadded, -> { order('register_date') }
 	scope :age, -> { order('age') }
+	scope :by_location, -> (location){ where('register_location_id = ?', location) }
 	scope :neighborhood, ->(neighborhood) { where('neighborhood = ?', neighborhood)}
 	scope :afamerican, -> { where('race = ?', 'AfAm') }
 	scope :white, -> { where('race = ?', 'W') }

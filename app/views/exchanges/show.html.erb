@@ -46,6 +46,16 @@
 </p>
 
 <p>
+  <strong>Eight gal:</strong>
+  <%= @exchange.eight_gal %>
+</p>
+
+<p>
+  <strong>Bleach Bottles:</strong>
+  <%= @exchange.bleach_bottle %>
+</p>
+
+<p>
   <strong>Alcohol whipes:</strong>
   <%= @exchange.alcohol_whipes %>
 </p>
@@ -101,4 +111,5 @@
 </p>
 
 <%= link_to 'Edit', edit_exchange_path(@exchange) %> |
+<%= link_to 'Destroy', @exchange, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', exchanges_path %>

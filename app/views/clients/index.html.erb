@@ -1,3 +1,4 @@
+
 <h1>Listing clients</h1>
 
 <table>
@@ -21,7 +22,7 @@
         <td><%= client.birth_date %></td>
         <td><%= client.race %></td>
         <td><%= client.register_date %></td>
-        <td><%= Location.find(client.register_location_name).name %></td>
+        <td><%= Location.find(client.register_location_id).name %></td>
         <td><%= client.gender %></td>
         <td><%= client.veterancy %></td>
         <td><%= client.neighborhood %></td>
@@ -32,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Client', new_client_path %>
+<%= link_to 'New Client', new_client_path, class: "button secondary radius" %>

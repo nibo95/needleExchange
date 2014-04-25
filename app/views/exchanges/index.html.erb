@@ -3,58 +3,23 @@
 <table>
   <thead>
     <tr>
-      <th>Visit</th>
+      <th>Client</th>
       <th>User</th>
-      <th>Ultrafines</th>
-      <th>Halfs</th>
-      <th>Pogos</th>
-      <th>Blues</th>
-      <th>One qt</th>
-      <th>Two qt</th>
-      <th>Three gal</th>
-      <th>Alcohol whipes</th>
-      <th>Cookers</th>
-      <th>Cottons</th>
-      <th>Ties</th>
-      <th>Bleach</th>
-      <th>Condoms</th>
-      <th>Ascorbic acid</th>
-      <th>Pieces of lit</th>
-      <th>Narcan</th>
-      <th>Secondary exchange</th>
-      <th>Returned needles</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Visit Time</th>
+      <th>Total Needles Received</th>
+      <th>Total Returned Needles</th>
     </tr>
   </thead>
 
   <tbody>
     <% @exchanges.each do |exchange| %>
       <tr>
-        <td><%= exchange.visit_id %></td>
+        <td><%= link_to exchange.visit.client.code, exchange.visit.client %></td>
         <td><%= exchange.user_id %></td>
-        <td><%= exchange.ultrafines %></td>
-        <td><%= exchange.halfs %></td>
-        <td><%= exchange.pogos %></td>
-        <td><%= exchange.blues %></td>
-        <td><%= exchange.one_qt %></td>
-        <td><%= exchange.two_qt %></td>
-        <td><%= exchange.three_gal %></td>
-        <td><%= exchange.alcohol_whipes %></td>
-        <td><%= exchange.cookers %></td>
-        <td><%= exchange.cottons %></td>
-        <td><%= exchange.ties %></td>
-        <td><%= exchange.bleach %></td>
-        <td><%= exchange.condoms %></td>
-        <td><%= exchange.ascorbic_acid %></td>
-        <td><%= exchange.pieces_of_lit %></td>
-        <td><%= exchange.narcan %></td>
-        <td><%= exchange.secondary_exchange %></td>
-        <td><%= exchange.returned_needles %></td>
-        <td><%= link_to 'Show', exchange %></td>
-        <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
-        <td><%= link_to 'Destroy', exchange, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to exchange.visit.visit_time, exchange.visit %></td>
+        <td><%= exchange.total_needles_received %></td>
+        <td><%= exchange.total_returned_needles %></td>
+        <td><%= link_to "Details", exchange, class: "button tiny radius" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -62,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Exchange', new_exchange_path %>
+<%= link_to 'New Exchange', new_exchange_path, class: "button secondary radius" %>
