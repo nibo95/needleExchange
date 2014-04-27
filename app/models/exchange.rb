@@ -12,6 +12,7 @@ class Exchange < ActiveRecord::Base
 	validates_numericality_of :three_gal, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :eight_gal, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :bleach_bottle, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
+    validates_numericality_of :returned_needles, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted for returned needles"
 
 	validates_numericality_of :alcohol_whipes, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
 	validates_numericality_of :cookers, :allow_nil=> false, :only_integer => true, :message => "only integer values are permitted"
