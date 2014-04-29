@@ -15,9 +15,9 @@
   <div class="field" style="display: none">
     <%= f.number_field :visit_id, :value => Visit.last.id %>
   </div>
-  <div class="field">
+  <div class="field" style="display: none">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.input :user_id, :input_html => { :value => current_user.id } %>
   </div>
   <h5>Supplies for Pickup</h5><br>
   <div class="field">

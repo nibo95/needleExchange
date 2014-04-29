@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Client</th>
-      <th>User</th>
+      <th>Volunteer</th>
       <th>Visit Time</th>
       <th>Total Needles Received</th>
       <th>Total Returned Needles</th>
@@ -15,7 +15,7 @@
     <% @exchanges.each do |exchange| %>
       <tr>
         <td><%= link_to exchange.visit.client.code, exchange.visit.client %></td>
-        <td><%= exchange.user_id %></td>
+        <td><%= exchange.user.name %></td>
         <td><%= link_to exchange.visit.visit_time, exchange.visit %></td>
         <td><%= exchange.total_needles_received %></td>
         <td><%= exchange.total_returned_needles %></td>
