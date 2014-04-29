@@ -24,7 +24,8 @@
   <strong>Zip:</strong>
   <%= @location.zip %>
 </p>
-
-<%= link_to 'Edit', edit_location_path(@location), class: "button secondary radius" %>
-<%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
+<% if current_user.role == "admin" %>
+  <%= link_to 'Edit', edit_location_path(@location), class: "button secondary radius" %>
+  <%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
+<% end %>
 <%= link_to 'Back', locations_path, class: "button secondary radius" %>

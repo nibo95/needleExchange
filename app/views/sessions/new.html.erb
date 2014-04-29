@@ -1,20 +1,27 @@
-<h3>Log In</h3>
-
-<%= form_tag sessions_path do %>
-
-	<div class="control-group">
-    <%= label_tag :email %>
-    <div class="controls">
-      <%= text_field_tag :email, params[:email] %>
+<div align="center">
+  <br><br>
+  <div style="background-color:#FFFFD5; width:800px;"><br>
+  <h3>Log In</h3><br><br>
+  <%= form_tag sessions_path do %>
+    <div style="width:500px">
+    	<div class="control-group" align="left">
+        <%= label_tag "Email Address:" %>
+        <div class="controls">
+          <%= text_field_tag :email, params[:email] %>
+        </div>
+      </div>
+      <br><br>
+    	<div class="control-group" align="left">
+        <%= label_tag "Password:" %>
+        <div class="controls">
+          <%= password_field_tag :password %>
+        </div>
+      </div>
+      <br><br>
+      <div class="actions">
+        <%= submit_tag "Log In", class: "button secondary radius" %>
+      </div><br>
     </div>
+  <% end %>
   </div>
-
-	<div class="control-group">
-    <%= label_tag :password %>
-    <div class="controls">
-      <%= password_field_tag :password %>
-    </div>
-  </div>
-
-  <div class="actions"><%= submit_tag "Log In" %></div>
-<% end %>
+</div>

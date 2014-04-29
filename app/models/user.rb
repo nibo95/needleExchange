@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
     	find_by_email(email).try(:authenticate, password)
   	end
 
+  	def role?(authorized_role)
+    	return false if role.nil?
+    	role.to_sym == authorized_role
+ 	end
+
   	def name
   		last_name + ', ' + first_name
   	end

@@ -1,6 +1,8 @@
 class ExchangesController < ApplicationController
   before_action :set_exchange, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_login
+  authorize_resource
+  
   # GET /exchanges
   # GET /exchanges.json
   def index

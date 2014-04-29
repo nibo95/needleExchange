@@ -1,6 +1,8 @@
 class ReportsController < ApplicationController
 	before_action :check_login
+
 	def index
+		authorize! :index, @report
 	end
 
 	def finished

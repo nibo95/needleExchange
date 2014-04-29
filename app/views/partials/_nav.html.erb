@@ -6,6 +6,7 @@
         </li>
       </ul>
       <section class="top-bar-section">
+        <% if logged_in? %>
         <ul class="left">
      
           <li class="has-dropdown">
@@ -39,14 +40,16 @@
               <li><%= link_to "Add an Exchange", new_visit_path %></li>
             </ul>
           </li>
-
+          <% if current_user.role == "admin" %>
           <li class="has-dropdown">
             <%= link_to "Reports", generate_path %>
             <ul class="dropdown">
               <li><%= link_to "Generate Reports", generate_path %></li>
             </ul>
           </li>
+          <% end%>
         </ul>
+        <% end %>
         <% if logged_in? %>
           <ul class="right">
             <li class="has-dropdown">

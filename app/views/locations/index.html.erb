@@ -25,5 +25,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Location', new_location_path, class: "button secondary radius" %>
+<% if current_user.role =="admin" %>
+  <%= link_to 'New Location', new_location_path, class: "button secondary radius" %>
+<% end %>
