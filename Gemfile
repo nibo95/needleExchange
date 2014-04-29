@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 
 gem 'cancancan'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

@@ -9,12 +9,19 @@ NeedleExchange::Application.routes.draw do
 
   resources :clients
 
+  resources :sessions
+
   # resources :reports
   
 
   get 'home', to: 'home#index', as: :home
   get 'reports', to: 'reports#index', as: :reports
   get 'generate', to: 'reports#generate', as: :generate
+
+  get 'user/edit' => 'users#edit', :as => :edit_current_user
+  get 'signup' => 'users#new', :as => :signup
+  get 'login' => 'sessions#new', :as => :login
+  get 'logout' => 'sessions#destroy', :as => :logout
 
   root to: 'home#index'
 

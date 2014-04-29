@@ -7,7 +7,7 @@
       </ul>
       <section class="top-bar-section">
         <ul class="left">
-          <!-- options for curriculums -->
+     
           <li class="has-dropdown">
             <%= link_to "Clients", clients_path %>
             <ul class="dropdown">
@@ -16,7 +16,6 @@
             </ul>
           </li>
 
-          <!-- options for camps -->
           <li class="has-dropdown">
             <%= link_to "Locations", locations_path %>
             <ul class="dropdown">
@@ -25,9 +24,7 @@
             </ul>
           </li>
 
-          <!-- options for instructors -->
           <li class="has-dropdown">
-            <!-- <a href="#">Instructors</a> -->
             <%= link_to "Visits", visits_path %>
             <ul class="dropdown">
               <li><%= link_to "List Visits", visits_path %></li>
@@ -36,7 +33,6 @@
           </li>
 
           <li class="has-dropdown">
-            <!-- <a href="#">Instructors</a> -->
             <%= link_to "Exchanges", exchanges_path %>
             <ul class="dropdown">
               <li><%= link_to "List Exchanges", exchanges_path %></li>
@@ -45,13 +41,29 @@
           </li>
 
           <li class="has-dropdown">
-            <!-- <a href="#">Instructors</a> -->
             <%= link_to "Reports", generate_path %>
             <ul class="dropdown">
               <li><%= link_to "Generate Reports", generate_path %></li>
             </ul>
           </li>
         </ul>
+        <% if logged_in? %>
+          <ul class="right">
+            <li class="has-dropdown">
+            <%= link_to "Welcome, #{current_user.first_name}", user_path(current_user) %>
+            <ul class="dropdown">
+              <li><%= link_to "Edit settings", edit_user_path(current_user) %></li>
+              <li><%= link_to "View profile", current_user %></li>
+              <li><%= link_to "Logout", logout_path %></li>
+            </ul>
+          </li>
+        <% else %>
+          <ul class="right">
+            <li>
+              <%= link_to "Login", login_path %>
+            </li>
+          </ul>
+        <% end %>
       </section>
     </nav>
   </div>
