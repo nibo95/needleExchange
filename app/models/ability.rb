@@ -21,6 +21,8 @@ class Ability
         can :show, Client
         can :show, Location
         can :show, Exchange
+        can :show, Visit
+    
 
         can :show, User do |u|
             u.id == user.id
