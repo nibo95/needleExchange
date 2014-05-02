@@ -22,7 +22,7 @@
         <td><%= client.birth_date.to_date.strftime("%B %d, %Y") %></td>
         <td><%= client.race %></td>
         <td><%= client.register_date.to_date.strftime("%B %d, %Y") %></td>
-        <td><%= Location.find(client.register_location_id).name %></td>
+        <td><%= link_to Location.find(client.register_location_id).name, Location.find(client.register_location_id) %></td>
         <td><%= client.gender %></td>
         <td><%= client.veterancy %></td>
         <td><%= client.neighborhood %></td>
