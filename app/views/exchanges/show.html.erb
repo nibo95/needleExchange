@@ -1,16 +1,73 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class="small-8 columns">
+<h1>Exchange for <%= @exchange.visit.client.code %></h1>
+<div>
   <strong>Client:</strong>
   <%= link_to @exchange.visit.client.code, @exchange.visit.client %>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Volunteer:</strong>
   <%= @exchange.user.name %>
-</p>
+</div>
 
-<p>
+<div>
+  <strong>Alcohol whipes:</strong>
+  <%= @exchange.alcohol_whipes %>
+</div>
+
+<div>
+  <strong>Cookers:</strong>
+  <%= @exchange.cookers %>
+</div>
+
+<div>
+  <strong>Cottons:</strong>
+  <%= @exchange.cottons %>
+</div>
+
+<div>
+  <strong>Ties:</strong>
+  <%= @exchange.ties %>
+</div>
+
+<div>
+  <strong>Bleach:</strong>
+  <%= @exchange.bleach %>
+</div>
+
+<div>
+  <strong>Condoms:</strong>
+  <%= @exchange.condoms %>
+</div>
+
+<div>
+  <strong>Ascorbic acid:</strong>
+  <%= @exchange.ascorbic_acid %>
+</div>
+
+<div>
+  <strong>Pieces of lit:</strong>
+  <%= @exchange.pieces_of_lit %>
+</div>
+
+<div>
+  <strong>Narcan:</strong>
+  <%= @exchange.narcan %>
+</div>
+ 
+  <% if @exchange.secondary_exchange > 1 %>
+    <div>
+      <strong>Picked up for:</strong>
+      <%= @exchange.secondary_exchange %> additional people
+    </div>
+  <% elsif @exchange.secondary_exchange == 1 %>
+    <div>
+      <strong>Picked up for:</strong>
+      <%= @exchange.secondary_exchange %> additional person
+    </div>
+  <% end %>
+  <div>
 <strong>Needles Received by Client:</strong>
 <table>
   <tr>
@@ -28,9 +85,9 @@
     <td><%= @exchange.total_needles_received %></td>
   </tr>
 </table>
-</p>
+</div>
 
-<p>
+<div>
   <strong>Needles Returned by Client:</strong>
   <table>
   <tr>
@@ -52,84 +109,7 @@
     <td><%= @exchange.total_returned_needles %></td>
   </tr>
 </table>
-</p>
-
-<!-- <p>
-  <strong>Other Supplies Received:</strong>
-  <table>
-  <tr>
-    <th>Alcohol Wipes</th>
-    <th>Cookers</th>
-    <th>Cottons</th>
-    <th>Ties</th>
-    <th>Total Needles Received</th>
-  </tr>
-  <tr>
-    <td><%= @exchange.ultrafines %></td>
-    <td><%= @exchange.halfs %></td>
-    <td><%= @exchange.pogos %></td>
-    <td><%= @exchange.blues %></td>
-    <td><%= @exchange.total_needles_received %></td>
-  </tr>
-</table>
-</p> -->
-
-<p>
-  <strong>Alcohol whipes:</strong>
-  <%= @exchange.alcohol_whipes %>
-</p>
-
-<p>
-  <strong>Cookers:</strong>
-  <%= @exchange.cookers %>
-</p>
-
-<p>
-  <strong>Cottons:</strong>
-  <%= @exchange.cottons %>
-</p>
-
-<p>
-  <strong>Ties:</strong>
-  <%= @exchange.ties %>
-</p>
-
-<p>
-  <strong>Bleach:</strong>
-  <%= @exchange.bleach %>
-</p>
-
-<p>
-  <strong>Condoms:</strong>
-  <%= @exchange.condoms %>
-</p>
-
-<p>
-  <strong>Ascorbic acid:</strong>
-  <%= @exchange.ascorbic_acid %>
-</p>
-
-<p>
-  <strong>Pieces of lit:</strong>
-  <%= @exchange.pieces_of_lit %>
-</p>
-
-<p>
-  <strong>Narcan:</strong>
-  <%= @exchange.narcan %>
-</p>
- 
-  <% if @exchange.secondary_exchange > 1 %>
-    <p>
-      <strong>Picked up for:</strong>
-      <%= @exchange.secondary_exchange %> additional people
-    </p>
-  <% elsif @exchange.secondary_exchange == 1 %>
-    <p>
-      <strong>Picked up for:</strong>
-      <%= @exchange.secondary_exchange %> additional person
-    </p>
-  <% end %>
+</div>
 </p>
 
 <%= link_to 'Edit', edit_exchange_path(@exchange), class: "button secondary radius" %>
@@ -137,3 +117,4 @@
   <%= link_to 'Destroy', @exchange, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
 <% end %>
 <%= link_to 'Back', exchanges_path, class: "button secondary radius" %>
+</div>

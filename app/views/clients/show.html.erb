@@ -1,73 +1,74 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div class="small-8 columns">
+<h1>Client Profile for <%= @client.code %> </h1>
+<div>
   <strong>Code:</strong>
   <%= @client.code %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Old Code:</strong>
   <% if @client.has_old_code == true %>
     <%= @client.old_code %>
   <% else %>
     Client does not have an old code
   <% end %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Birth date:</strong>
   <%= @client.birth_date.to_date.strftime("%B, %d, %Y") %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Race:</strong>
   <%= @client.race %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Register date:</strong>
   <%= @client.register_date.to_date.strftime("%B, %d, %Y") %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Register location name:</strong>
   <%= Location.find(@client.register_location_id).name %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Gender:</strong>
   <%= @client.gender %>
-</p>
-
+</div>
+<br>
 <% if @client.how_did_you_hear != "" %>
-  <p>
+  <div>
     <strong>How did you hear:</strong>
     <%= @client.how_did_you_hear %>
-  </p>
+  </div>
+  <br>
 <% end %>
-
-<p>
+<div>
   <strong>Veterancy Status:</strong>
   <%= @client.veterancy %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Neighborhood:</strong>
   <%= @client.neighborhood %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>HIV Screen Results:</strong>
   <% if @client.hiv_screen == true and @client.hiv_result == true %>
-    Positive(+)
+    divositive(+)
   <% elsif @client.hiv_screen == true and @client.hiv_result == false %>
     Negative(-)
   <% else %>
     This Client has not been tested for HIV.
   <% end %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Hepatitis B Screen Results:</strong>
   <% if @client.hep_b_screen == true and @client.hep_b_result == true %>
     Positive(+)
@@ -76,9 +77,9 @@
   <% else %>
     This Client has not been tested for Hepatitis B.
   <% end %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Hepatitis C Screen Results:</strong>
   <% if @client.hep_c_screen == true and @client.hep_c_result == true %>
     Positive(+)
@@ -87,10 +88,32 @@
   <% else %>
     This Client has not been tested for Hepatitis C.
   <% end %>
-</p>
-
+</div>
+<br>
 <%= link_to 'Edit', edit_client_path(@client), class: "button secondary radius" %>
 <% if current_user.role =="admin" %>
   <%= link_to 'Destroy', @client, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
 <% end %>
 <%= link_to 'Back', clients_path, class: "button secondary radius" %>
+</div>
+<div class="small-4 columns">
+  <h2>Visits made by client:</h2>
+  <table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Visit time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client.visits.each do |visit| %>
+      <tr>
+        <td><%= link_to visit.location.name, visit.location %></td>
+        <td><%= visit.visit_time %></td>
+        <td><%= link_to 'Details', visit, class: 'button tiny radius' %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

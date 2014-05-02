@@ -1,22 +1,27 @@
+<div class="small-8 columns">
 <p id="notice"><%= notice %></p>
-
-<p>
+<h1>Visit for <%= @visit.client.code %></h1>
+<h4>
+<div>
   <strong>Location:</strong>
   <%= @visit.location.name %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Client:</strong>
   <%= @visit.client.code %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Visit time:</strong>
   <%= @visit.visit_time %>
-</p>
-
+</div>
+</h4>
+<br>
 <%= link_to 'Edit', edit_visit_path(@visit), class: "button secondary radius" %>
 <% if current_user.role == "admin" %>
 	<%= link_to 'Destroy', @visit, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
 <% end %>
 <%= link_to 'Back', visits_path, class: "button secondary radius" %>
+</div>
+

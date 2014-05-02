@@ -1,31 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<p>
+<div class="small-8 columns">
+<p id="notice"><%= notice %></p>
+<h1>Prevention Point Pittsburgh <%= @location.name %></h1>
+<h4>
+<div>
   <strong>Name:</strong>
   <%= @location.name %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Street:</strong>
   <%= @location.street %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>State:</strong>
   <%= @location.state %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>City:</strong>
   <%= @location.city %>
-</p>
-
-<p>
+</div>
+<br>
+<div>
   <strong>Zip:</strong>
   <%= @location.zip %>
-</p>
+</div>
+</h4> 
+<br>
 <% if current_user.role == "admin" %>
   <%= link_to 'Edit', edit_location_path(@location), class: "button secondary radius" %>
   <%= link_to 'Destroy', @location, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
 <% end %>
 <%= link_to 'Back', locations_path, class: "button secondary radius" %>
+</div>

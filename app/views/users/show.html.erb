@@ -1,20 +1,49 @@
 <p id="notice"><%= notice %></p>
+<div class="small-8 columns">
+	<h1>Profile for <%= @user.proper_name %></h1>
+	<h4>
+	<div>
+	  <strong>Name:</strong>
+	  <%= @user.name %>
+	</div>
+	<br>
+	<div>
+		<strong>Email:</strong>
+		<%= @user.email %>
+	</div>
+	<br>
+	<div>
+	  <strong>Role:</strong>
+	  <%= @user.role %>
+	</div>
+	<br>
+	</h4>
+	<h2>Exchanges handled by <%= @user.first_name %></h2>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Client</th>
+	      <th>Visit Time</th>
+	      <th>Total Needles Received</th>
+	      <th>Total Returned Needles</th>
+	    </tr>
+	  </thead>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+	  <tbody>
+	    <% @user.exchanges.each do |exchange| %>
+	      <tr>
+	        <td><%= link_to exchange.visit.client.code, exchange.visit.client %></td>
+	        <td><%= link_to exchange.visit.visit_time, exchange.visit %></td>
+	        <td><%= exchange.total_needles_received %></td>
+	        <td><%= exchange.total_returned_needles %></td>
+	        <td><%= link_to "Details", exchange, class: "button tiny radius" %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
 
-<p>
-	<strong>Email:</strong>
-	<%= @user.email %>
-</p>
+	<%= link_to 'Edit', edit_user_path(@user), class: "button secondary radius" %>
+	<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
+	<%= link_to 'Back', users_path, class: "button secondary radius" %>
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user), class: "button secondary radius" %>
-<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "button secondary radius" %>
-<%= link_to 'Back', users_path, class: "button secondary radius" %>
+</div>
