@@ -56,7 +56,9 @@
 		<% Location.all.each do |location| %>
 			<% count = 0 %>
 			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
-					<% count = count + visit.exchange.total_returned_needles %>
+					<% if visit.exchange != nil %>
+						<% count = count + visit.exchange.total_returned_needles %>
+					<% end %>
 			<% end %>
 			<td><%= count %></td>
 		<% end %>
@@ -75,9 +77,11 @@
 			<% count = 0 %>
 			<% codes = Array.new %>
 			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
-				<% if codes.index(visit.client.code) == nil and visit.exchange.narcan > 0 %>
-					<% codes = codes + [visit.client.code] %>
-					<% count = count + 1 %>
+				<% if visit.exchange != nil %>
+					<% if codes.index(visit.client.code) == nil and visit.exchange.narcan > 0 %>
+						<% codes = codes + [visit.client.code] %>
+						<% count = count + 1 %>
+					<% end %>
 				<% end %>
 			<% end %>
 			<td><%= count %></td>
@@ -98,10 +102,12 @@
 			<% condomnum = 0 %>
 			<% codes = Array.new %>
 			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
-				<% if codes.index(visit.client.code) == nil and visit.exchange.condoms > 0 %>
-					<% codes = codes + [visit.client.code] %>
-					<% count = count + 1 %>
-					<% condomnum = condomnum + visit.exchange.condoms %>
+				<% if visit.exchange != nil %>
+					<% if codes.index(visit.client.code) == nil and visit.exchange.condoms > 0 %>
+						<% codes = codes + [visit.client.code] %>
+						<% count = count + 1 %>
+						<% condomnum = condomnum + visit.exchange.condoms %>
+					<% end %>
 				<% end %>
 			<% end %>
 			<td><%= count %> People <%= condomnum %> Condoms</td>
@@ -120,7 +126,9 @@
 		<% Location.all.each do |location| %>
 			<% count = 0 %>
 			<% Visit.all.after_date(startd).before_date(endd).by_location(location).each do |visit| %>
+				<% if visit.exchange != nil %>
 					<% count = count + visit.exchange.total_needles_received %>
+				<% end %>
 			<% end %>
 			<td><%= count %></td>
 		<% end %>
