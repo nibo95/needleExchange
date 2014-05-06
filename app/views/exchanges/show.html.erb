@@ -8,7 +8,11 @@
 
 <div>
   <strong>Volunteer:</strong>
-  <%= @exchange.user.name %>
+  <% if @exchange.user == nil %>
+    User Was Deleted by Admin
+  <% else %>
+    <%= @exchange.user.name %>
+  <% end %>
 </div>
 
 <div>

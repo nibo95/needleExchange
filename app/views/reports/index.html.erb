@@ -4,7 +4,7 @@
     <% startd = request.original_url.split("?").last.split("&").first.split("=").last %>
     <% endd = request.original_url.split("&").last.split("=").last %>
 
-	<h5>Amount of unduplicated users served from <%= startd %> to <%= endd %></h5>
+	<h5>Number of unduplicated users served from <%= startd %> to <%= endd %></h5>
 	<table>
 		<tr>
 		<% Location.all.each do |location| %>
@@ -26,7 +26,7 @@
 		</tr>
 	</table>
 
-	<h5>Amount of unduplicated users registered from <%= startd %> to <%= endd %></h5>
+	<h5>Number of unduplicated users registered from <%= startd %> to <%= endd %></h5>
 	<table>
 		<tr>
 		<% Location.all.each do |location| %>
@@ -45,7 +45,7 @@
 	</table>
 	
 
-	<h5>Amount of returned needles from <%= startd %> to <%= endd %></h5>
+	<h5>Number of returned needles from <%= startd %> to <%= endd %></h5>
 	<table>
 		<tr>
 		<% Location.all.each do |location| %>
@@ -65,7 +65,7 @@
 		</tr>
 	</table>
 
-	<h5>number of unduplicated users who received naloxone from <%= startd %> to <%= endd %></h5>
+	<h5>Number of unduplicated users who received naloxone from <%= startd %> to <%= endd %></h5>
 	<table>
 		<tr>
 		<% Location.all.each do |location| %>
@@ -89,7 +89,7 @@
 		</tr>
 	</table>
 
-	<h5>number of unduplicated users who received condom and the number of condoms they received from <%= startd %> to <%= endd %></h5>
+	<h5>Number of unduplicated users who received condom and the number of condoms they received from <%= startd %> to <%= endd %></h5>
 	<table>
 		<tr>
 		<% Location.all.each do |location| %>
@@ -115,7 +115,7 @@
 		</tr>
 	</table>
 
-	<h5>total number of syringes given from <%= startd %> to <%= endd %></h5>
+	<h5>Total number of syringes given from <%= startd %> to <%= endd %></h5>
 	<table>
 		<tr>
 		<% Location.all.each do |location| %>
